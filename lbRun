@@ -1,0 +1,14 @@
+export OMP_NUM_THREADS=24
+
+#These should be run prior to lbHydra simulation
+#export PATH=/nfs/nas-derdw-01/erdw_ifg_saar_project_01/software/LBHydra/LatticeBoltzmannSimulation/src:$PATH
+#export PATH=/nfs/nas-derdw-01/erdw_ifg_saar_project_01/software/LBHydra/LBHydraShareLib:$PATH
+#module load open_mpi
+#module load gcc/4.9.2
+
+
+bsub -R "rusage[mem=2048]" -W 100:00 -n 24 " lbHydra -o 24 -d /nfs/nas-derdw-01/erdw_ifg_saar_project_01/software/LBHydra/LBHydraShareLib -f TwoDExample.simulationInput & > perm.out "
+
+
+#for simpler geometries: bsub -R "rusage[mem=2048]" -W 10:00 -n 24 " lbHydra -o 24 -d /nfs/nas-derdw-01/erdw_ifg_saar_project_01/software/LBHydra/LBHydraShareLib -f TwoDExample.simulationInput & > perm.out "
+

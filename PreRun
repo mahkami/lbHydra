@@ -1,0 +1,5 @@
+export OMP_NUM_THREADS=1
+
+bsub -R "rusage[mem=98304]" -W 3:00 " matlab -r Preprocessor_TwoD & > PreRun.out "
+
+#for smaller geometries, one should use lower memory e.g: bsub -R "rusage[mem=2048]" -W 3:00 " matlab -r Preprocessor_TwoD & > PreRun.out "
